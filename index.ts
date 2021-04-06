@@ -2,6 +2,10 @@
 let cells = document.querySelectorAll(".cell")
 // 获取提示div
 let gameBord = document.querySelector("#bord")
+// 获取信息面板
+let message = document.getElementById("message") as HTMLDivElement
+// 获胜者
+let winner = document.getElementById("winner") as HTMLParagraphElement
 // 枚举玩家
 enum Player {
     x = "x",
@@ -46,13 +50,18 @@ function clickCill(event: MouseEvent) {
     // console.log(isWin);
 
     if (isWin) {
-        console.log("当前玩家获胜了");
+        // console.log("当前玩家获胜了");
+        // 显示获胜信息面板
+        message.style.display = 'block'
+        winner.innerText = currentPlayer + " 赢了"
         return
     }
 
     // 判断是否平局
     if(steps === 9){
-        console.log("平局");
+        // console.log("平局");
+        message.style.display = 'block'
+        winner.innerHTML = '平局'
         return
     }
 

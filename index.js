@@ -2,6 +2,10 @@
 var cells = document.querySelectorAll(".cell");
 // 获取提示div
 var gameBord = document.querySelector("#bord");
+// 获取信息面板
+var message = document.getElementById("message");
+// 获胜者
+var winner = document.getElementById("winner");
 // 枚举玩家
 var Player;
 (function (Player) {
@@ -39,12 +43,17 @@ function clickCill(event) {
     var isWin = checkWin(currentPlayer);
     // console.log(isWin);
     if (isWin) {
-        console.log("当前玩家获胜了");
+        // console.log("当前玩家获胜了");
+        // 显示获胜信息面板
+        message.style.display = 'block';
+        winner.innerText = currentPlayer + " 赢了";
         return;
     }
     // 判断是否平局
     if (steps === 9) {
-        console.log("平局");
+        // console.log("平局");
+        message.style.display = 'block';
+        winner.innerHTML = '平局';
         return;
     }
     // 切换玩家
