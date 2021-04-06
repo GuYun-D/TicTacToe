@@ -16,8 +16,7 @@ var winArr = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ];
 // 已下棋的步数
-let steps = 0;
-
+var steps = 0;
 // 每个添加点击事件
 cells.forEach(function (item) {
     // console.log(item);
@@ -34,19 +33,19 @@ function clickCill(event) {
     var target = event.target;
     // 添加类名
     target.classList.add(currentPlayer);
-    // 瞎了一步棋
+    // 已下棋
     steps++;
     // 下棋的那一刻，判断是否赢了
     var isWin = checkWin(currentPlayer);
     // console.log(isWin);
     if (isWin) {
         console.log("当前玩家获胜了");
-        return
+        return;
     }
     // 判断是否平局
-    if(steps === 9){
+    if (steps === 9) {
         console.log("平局");
-        return
+        return;
     }
     // 切换玩家
     currentPlayer = currentPlayer === Player.x ? Player.o : Player.x;

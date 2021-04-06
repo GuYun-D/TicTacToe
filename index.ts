@@ -15,6 +15,8 @@ let currentPlayer = Player.x
 let winArr = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ]
+// 已下棋的步数
+let steps = 0;
 
 
 // 每个添加点击事件
@@ -36,12 +38,22 @@ function clickCill(event: MouseEvent) {
     // 添加类名
     target.classList.add(currentPlayer)
 
+    // 已下棋
+    steps++;
+
     // 下棋的那一刻，判断是否赢了
     let isWin = checkWin(currentPlayer)
-    console.log(isWin);
+    // console.log(isWin);
 
     if (isWin) {
         console.log("当前玩家获胜了");
+        return
+    }
+
+    // 判断是否平局
+    if(steps === 9){
+        console.log("平局");
+        return
     }
 
     // 切换玩家
