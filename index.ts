@@ -14,7 +14,7 @@ enum Player {
     o = "o"
 }
 // 玩家变量
-let currentPlayer = Player.x
+let currentPlayer: Player
 // let currentPlayer: Player = Player.x
 
 // 判赢数组
@@ -22,22 +22,25 @@ let winArr = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ]
 // 已下棋的步数
-let steps = 0;
+let steps: number;
 
 
 // 每个添加点击事件
-cells.forEach(function (item) {
-    // console.log(item);
+// cells.forEach(function (item) {
+//     // console.log(item);
 
-    // 类型断言
-    let cell = item as HTMLDivElement
-    /**
-     * 事件对象也应该进行类型断言
-     */
-    cell.addEventListener('click', clickCill, { once: true })
-})
+//     // 类型断言
+//     let cell = item as HTMLDivElement
+//     /**
+//      * 事件对象也应该进行类型断言
+//      */
+//     cell.addEventListener('click', clickCill, { once: true })
+// })
 
-restart.addEventListener("click", function(){
+restart.addEventListener("click", startGame)
+// 开始游戏，调用函数
+startGame()
+function startGame() {
     // 重置数据
     message.style.display = 'none'
     // 重置下棋步数
@@ -49,14 +52,15 @@ restart.addEventListener("click", function(){
     gameBord.classList.add(Player.x)
 
     // 清空棋盘
-    cells.forEach(function(item){
+    cells.forEach(function (item) {
         let cell = item as HTMLDivElement
         cell.classList.remove(Player.x, Player.o)
         // 移除单元格的事件，因为开始设置事件只触发一次， 重新给单元格绑定点击事件
         cell.removeEventListener('click', clickCill)
-        cell.addEventListener("click", clickCill, {once: true})
+        cell.addEventListener("click", clickCill, { once: true })
     })
-})
+
+}
 
 // 处理单元格click事件函数
 function clickCill(event: MouseEvent) {
@@ -81,7 +85,7 @@ function clickCill(event: MouseEvent) {
     }
 
     // 判断是否平局
-    if(steps === 9){
+    if (steps === 9) {
         // console.log("平局");
         message.style.display = 'block'
         winner.innerHTML = '平局'
@@ -106,7 +110,7 @@ function checkWin(player: Player) {
         // console.log(cellIndex1, cellIndex2, cellIndex3);
 
         // 判断这三个单元格元素是否同时包含类名
-        if (hasClass(cells[cellIndex1], player) && hasClass(cells[cellIndex2], player) && hasClass(cells[cellIndex3], player)){
+        if (hasClass(cells[cellIndex1], player) && hasClass(cells[cellIndex2], player) && hasClass(cells[cellIndex3], player)) {
             return true
         }
         return false;

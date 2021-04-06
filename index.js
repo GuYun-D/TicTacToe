@@ -15,25 +15,28 @@ var Player;
     Player["o"] = "o";
 })(Player || (Player = {}));
 // 玩家变量
-var currentPlayer = Player.x;
+var currentPlayer;
 // let currentPlayer: Player = Player.x
 // 判赢数组
 var winArr = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ];
 // 已下棋的步数
-var steps = 0;
+var steps;
 // 每个添加点击事件
-cells.forEach(function (item) {
-    // console.log(item);
-    // 类型断言
-    var cell = item;
-    /**
-     * 事件对象也应该进行类型断言
-     */
-    cell.addEventListener('click', clickCill, { once: true });
-});
-restart.addEventListener("click", function () {
+// cells.forEach(function (item) {
+//     // console.log(item);
+//     // 类型断言
+//     let cell = item as HTMLDivElement
+//     /**
+//      * 事件对象也应该进行类型断言
+//      */
+//     cell.addEventListener('click', clickCill, { once: true })
+// })
+restart.addEventListener("click", startGame);
+// 开始游戏，调用函数
+startGame();
+function startGame() {
     // 重置数据
     message.style.display = 'none';
     // 重置下棋步数
@@ -51,7 +54,7 @@ restart.addEventListener("click", function () {
         cell.removeEventListener('click', clickCill);
         cell.addEventListener("click", clickCill, { once: true });
     });
-});
+}
 // 处理单元格click事件函数
 function clickCill(event) {
     // 获取被点击的对象
