@@ -1,5 +1,5 @@
 // 获取九个格子
-let cells = document.querySelectorAll(".cell") as NodeList
+let cells = document.querySelectorAll(".cell")
 // 获取提示div
 let gameBord = document.querySelector("#bord")
 // 枚举玩家
@@ -53,7 +53,7 @@ function clickCill(event: MouseEvent) {
 
 // 封装判赢函数
 function checkWin(player: Player) {
-    let isWin = winArr.some(function (item) {
+    return winArr.some(function (item) {
         // 获取到每种获胜情况对应的三个单元格元素
         // 先拿到没中获胜情况的三个索引
         let cellIndex1 = item[0]
@@ -61,25 +61,15 @@ function checkWin(player: Player) {
         let cellIndex3 = item[2]
         // console.log(cellIndex1, cellIndex2, cellIndex3);
 
-        // 通过三个索引从cells中获取到相应的单元格元素
-        let cell1 = cells[cellIndex1] as HTMLDivElement
-        let cell2 = cells[cellIndex2] as HTMLDivElement
-        let cell3 = cells[cellIndex3] as HTMLDivElement
-        // console.log(cell1, cell2, cell3);as HTMLDivElement
-        console.dir(cell1)
-        // console.log('----------------------------------------------------');
-
         // 判断这三个单元格元素是否同时包含类名
-        if(
-            cell1.classList.contains(player) &&
-            cell2.classList.contains(player) &&
-            cell3.classList.contains(player) 
-            {
+        if (hasClass(cells[cellIndex1], player) && hasClass(cells[cellIndex2], player) && hasClass(cells[cellIndex3], player)){
             return true
         }
-
-        return false
-
+        return false;
     })
-    return isWin
+}
+
+// 封装函数。判断dom元素是否包含某个类名
+function hasClass(el: Element, name: string) {
+    return el.classList.contains(name)
 }

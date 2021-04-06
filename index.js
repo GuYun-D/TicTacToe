@@ -45,27 +45,21 @@ function clickCill(event) {
 }
 // 封装判赢函数
 function checkWin(player) {
-    var isWin = winArr.some(function (item) {
+    return winArr.some(function (item) {
         // 获取到每种获胜情况对应的三个单元格元素
         // 先拿到没中获胜情况的三个索引
         var cellIndex1 = item[0];
         var cellIndex2 = item[1];
         var cellIndex3 = item[2];
         // console.log(cellIndex1, cellIndex2, cellIndex3);
-        // 通过三个索引从cells中获取到相应的单元格元素
-        var cell1 = cells[cellIndex1];
-        var cell2 = cells[cellIndex2];
-        var cell3 = cells[cellIndex3];
-        // console.log(cell1, cell2, cell3);as HTMLDivElement
-        console.dir(cell1);
-        // console.log('----------------------------------------------------');
         // 判断这三个单元格元素是否同时包含类名
-        if (cell1.classList.contains(player) &&
-            cell2.classList.contains(player) &&
-            cell3.classList.contains(player)) {
+        if (hasClass(cells[cellIndex1], player) && hasClass(cells[cellIndex2], player) && hasClass(cells[cellIndex3], player)) {
             return true;
         }
         return false;
     });
-    return isWin;
+}
+// 封装函数。判断dom元素是否包含某个类名
+function hasClass(el, name) {
+    return el.classList.contains(name);
 }
