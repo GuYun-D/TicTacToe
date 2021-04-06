@@ -6,6 +6,8 @@ var gameBord = document.querySelector("#bord");
 var message = document.getElementById("message");
 // 获胜者
 var winner = document.getElementById("winner");
+// 重新开始游戏
+var restart = document.getElementById("restart");
 // 枚举玩家
 var Player;
 (function (Player) {
@@ -30,6 +32,25 @@ cells.forEach(function (item) {
      * 事件对象也应该进行类型断言
      */
     cell.addEventListener('click', clickCill, { once: true });
+});
+restart.addEventListener("click", function () {
+    // 重置数据
+    message.style.display = 'none';
+    // 重置下棋步数
+    steps = 0;
+    // 默认玩家为x
+    currentPlayer = Player.x;
+    // 重置下棋提示为x
+    gameBord.classList.remove(Player.x, Player.o);
+    gameBord.classList.add(Player.x);
+    // 清空棋盘
+    cells.forEach(function (item) {
+        var cell = item;
+        cell.classList.remove(Player.x, Player.o);
+        // 移除单元格的事件，因为开始设置事件只触发一次， 重新给单元格绑定点击事件
+        cell.removeEventListener('click', clickCill);
+        cell.addEventListener("click", clickCill, { once: true });
+    });
 });
 // 处理单元格click事件函数
 function clickCill(event) {
