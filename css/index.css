@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Luckiest Guy';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/luckiestguy/v11/_gP_1RrxsjcxVyin9l9n_j2hTd5z.ttf) format('truetype');
-}
 body {
   width: 100vw;
   height: 100vh;
@@ -22,15 +15,67 @@ body header {
   color: #ccc;
 }
 body header .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 7;
 }
-body header .left a.logo {
+body header .left div.logo {
   flex: 3;
 }
-body header .left img {
+body header .left div.logo img {
   width: 20px;
   height: 20px;
   vertical-align: middle;
+}
+body header .left div.type {
+  position: relative;
+}
+body header .left div.type #typeBox {
+  position: absolute;
+  top: 27px;
+  right: -37px;
+  width: 100px;
+  height: 72px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  color: #111;
+  display: none;
+}
+body header .left div.type #typeBox ul {
+  position: relative;
+}
+body header .left div.type #typeBox ul li {
+  padding: 10px;
+  text-align: center;
+}
+body header .left div.type #typeBox ul li a {
+  margin-right: 0;
+}
+body header .left div.type #typeBox ul li a:hover {
+  color: #111;
+}
+body header .left div.type #typeBox ul li:hover {
+  transition: all 0.4s;
+  background-color: burlywood;
+}
+body header .left div.type #typeBox ul li:nth-child(1) {
+  border-radius: 4px 4px 0 0;
+}
+body header .left div.type #typeBox ul li:nth-child(2) {
+  border-radius: 0 0 4px 4px;
+}
+body header .left div.type #typeBox ul::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: 78px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
 }
 body header .right {
   display: flex;
