@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 0px #009807, 1px 2px #006705, 3px 1px #009807, 2px 3px #006705, 4px 2px #009807, 4px 4px #006705, 5px 3px #009807, 5px 5px #006705, 7px 4px #009807, 6px 6px #006705, 8px 5px #009807, 7px 7px #006705, 9px 6px #009807, 9px 8px #006705, 11px 7px #009807, 10px 9px #006705, 12px 8px #009807, 11px 10px #006705, 13px 9px #009807, 12px 11px #006705, 15px 10px #009807, 13px 12px #006705, 16px 11px #009807, 15px 13px #006705, 17px 12px #009807;
 }
 .container h1 span {
   font-size: 100px;
@@ -56,7 +57,7 @@
   align-items: center;
   margin-top: 30px;
   font-size: 40px;
-  animation: animate infinite 2s;
+  animation: animate 2s;
   transform-origin: 50% 50%;
 }
 .container h2 span:nth-child(5) {
@@ -65,24 +66,24 @@
 @keyframes animate {
   0% {
     box-shadow: 0;
-    text-shadow: 0 0 5px #f40;
+    text-shadow: 0 0 5px #79705b;
   }
   25% {
-    text-shadow: 0 0 10px #f40;
+    text-shadow: 0 0 10px #79705b;
     transform: rotate(5deg);
   }
   50% {
     box-shadow: 0;
     transform: rotate(0deg);
-    text-shadow: 0 0 0 #f40;
+    text-shadow: 0 0 0 #79705b;
   }
   75% {
-    text-shadow: 0 0 10px #f40;
+    text-shadow: 0 0 10px #79705b;
     transform: rotate(-5deg);
   }
   100% {
     box-shadow: 0;
     transform: rotate(0deg);
-    text-shadow: 0 0 5px #f40;
+    text-shadow: 0 0 5px #79705b;
   }
 }
