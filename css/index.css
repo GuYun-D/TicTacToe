@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Luckiest Guy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/luckiestguy/v11/_gP_1RrxsjcxVyin9l9n_j2hTd5z.ttf) format('truetype');
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+body header {
+  width: 100%;
+  height: 50px;
+  background-color: #404040;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+}
+body header .left {
+  flex: 7;
+}
+body header .left a.logo {
+  flex: 3;
+}
+body header .left img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+body header .right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+body header a {
+  margin-right: 30px;
+}
+body header a:hover {
+  color: #fff;
+  transition: all 0.3s;
+}
