@@ -1,3 +1,6 @@
+@import url('./variables.less');
+@import url("./mixins.less");
+
 body {
     width: 100vw;
     height: 100vh;
@@ -9,15 +12,11 @@ body {
         height: 50px;
         background-color: #404040;
         padding: 5px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        .flex();
         color: #ccc;
 
         .left {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            .flex();
             flex: 7;
 
             div {
@@ -42,8 +41,9 @@ body {
                         height: 72px;
                         background-color: rgb(255, 255, 255);
                         border-radius: 4px;
-                        color: #111;
+                        color: @fontColor1;
                         display: none;
+
                         ul {
                             position: relative;
 
@@ -55,7 +55,7 @@ body {
                                     margin-right: 0;
 
                                     &:hover {
-                                        color: #111;
+                                        color: @fontColor1;
                                     }
                                 }
 
@@ -83,7 +83,7 @@ body {
                                 height: 0;
                                 border-left: 5px solid transparent;
                                 border-right: 5px solid transparent;
-                                border-bottom: 5px solid #fff;
+                                border-bottom: 5px solid @fontColor2;
                             }
                         }
 
@@ -93,16 +93,14 @@ body {
         }
 
         .right {
-            display: flex;
-            justify-content: end;
-            align-items: center;
+            .flex();
         }
 
         a {
             margin-right: 30px;
 
             &:hover {
-                color: #fff;
+                color: @fontColor2;
                 transition: all .3s;
             }
         }
