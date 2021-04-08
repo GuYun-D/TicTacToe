@@ -5,6 +5,7 @@
 }
 body {
   width: 100vw;
+  min-width: 750px;
   height: 100vh;
   overflow: hidden;
   background-color: #ffffff;
@@ -25,6 +26,10 @@ body header .left {
   align-items: center;
   flex: 7;
 }
+body header .left div {
+  height: 50px;
+  line-height: 50px;
+}
 body header .left div.logo {
   flex: 3;
 }
@@ -38,7 +43,7 @@ body header .left div.type {
 }
 body header .left div.type #typeBox {
   position: absolute;
-  top: 27px;
+  top: 45px;
   right: -37px;
   width: 100px;
   height: 72px;
@@ -53,6 +58,8 @@ body header .left div.type #typeBox ul {
 body header .left div.type #typeBox ul li {
   padding: 10px;
   text-align: center;
+  height: 36px;
+  line-height: 16px;
 }
 body header .left div.type #typeBox ul li a {
   margin-right: 0;

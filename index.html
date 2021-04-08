@@ -24,8 +24,8 @@
                 <a href="https://github.com/GuYun-D/TicTacToe" target="_blank">源代码</a>
             </div>
 
-            <div class="type">
-                <a href="" id="a_type">模式</a>
+            <div class="type" id="a_type">
+                <a href="javascript:;">模式</a>
                 <div id="typeBox">
                     <ul>
                         <li><a href="./html/startGame.html?type=double">双人模式</a></li>
@@ -36,12 +36,8 @@
         </div>
 
         <div class="right">
-            <a href="">
+            <a href="./html/about.html">
                 关于
-            </a>
-
-            <a href="">
-                联系我
             </a>
         </div>
     </header>
@@ -74,14 +70,11 @@
         </h2>
     </section>
 
-    <script>
-        var a = document.getElementById('a_type')
-        var box = document.getElementById('typeBox')
-        a.onmouseenter = function(){
-            box.style.display = 'block'
-        }
+    <div id="led">
 
-    </script>
+    </div>
+
+    <script src="./Ts/index.js"></script>
 </body>
 
 </html>

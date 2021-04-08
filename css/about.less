@@ -1,0 +1,69 @@
+@import url("//at.alicdn.com/t/font_2473563_v7g2cdsej5.css");
+@import url("./variables.less");
+@import url("./mixins.less");
+
+body {
+    .aboutBox {
+
+        .left-contain {
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: @mianBgColor;
+            overflow-y: hidden;
+            transition: all .2s;
+
+            li {
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                background-color: rgb(129, 106, 2);
+                text-align: center;
+                color: @fontColor2;
+
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &:nth-child(n + 1) {
+                    border-bottom: 1px solid @mianBgColor;
+                }
+            }
+
+            .introduce-list{
+                li{
+                    border-bottom: none;
+                    background-color: #f40;
+                    transition: height .3s;
+                    &:nth-child(n + 1) {
+                        border-bottom: 1px solid yellow;
+                    }
+                }
+            }
+
+            .code-list{
+                li{
+                    border-bottom: none;
+                    background-color: #f40;
+                    transition: height .3s;
+                    &:nth-child(n + 1) {
+                        border-bottom: 1px solid yellow;
+                    }
+                }
+            }
+        }
+
+        .right-contain {
+            float: left;
+            width: 100%;
+            height: 100vh;
+            padding: 10px 10px 10px 250px;
+            transition: all .2s;
+        }
+    }
+}
